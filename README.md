@@ -70,12 +70,17 @@
 
 - 맷플롯립 한글 설정
 ```python
+import matplotlib.pyplot as plt
+import seaborn as sns
 from matplotlib import rcParams, font_manager, rc
 
 font_path = 'C:/Windows/Fonts/malgun.ttf' # 
 font = font_manager.FontProperties(fname=font_path).get_name() # 실제 설치된 폰트 이름조회
 rc('font', family=font) # 한글깨짐현상 해결!!
 rcParams['axes.unicode_minus'] = False # 한글 사용시 마이너스 표시 깨짐 해결!
+
+sns.set_style('darkgrid')
+sns.set_theme(font='Malgun Gothic', rc={'axes.unicode_minus': False})
 ```
 
 - 사이킷런 설치
@@ -86,6 +91,10 @@ rcParams['axes.unicode_minus'] = False # 한글 사용시 마이너스 표시 �
 - 텐서플로 설치
 ```shell
 > pip install tensorflow==2.15.0
+```
+
+```shell
+> pip install seaborn
 ```
 
 ### 첫번째 머신러닝
@@ -127,9 +136,35 @@ rcParams['axes.unicode_minus'] = False # 한글 사용시 마이너스 표시 �
 
 ## 2일차
 
+### 빅데이터에 필요한 모듈
+- Numpy(배열), Pandas(데이터 조각), Seaborn(차트꾸미기), Matplotlib(차트)
+- Folium(지도), Faker(더미데이터)
+
+- [노트북](./day02/mldl01_주요모듈학습.ipynb)
+
 ### 데이터 전처리
+- 머신러닝/딥러닝 이전에 데이터 가공
+
+- [노트북](./day02/mldl02_데이터전처리.ipynb)
 
 ### 선형회귀
+- 회귀(Regression) : 두 변수 사이의 상관관계를 분석하는 방법
+    - 임의의 수치를 예측하는 문제
+
+- `과대적합` - overfit. 모델 훈련세트 성능이 테스트세트 성능보다 훨씬 높을 때
+- `과소적합` - underfit. 훈련세트 성능 낮거나, 테스트세트 성능이 너무 높을 때
+
+<img src="./image/ml0004.png" width="500">
+
+- K-최근접 이웃 회귀 알고리즘 문제점 확인
+
+- [노트북](./day02/mldl03_선형회귀.ipynb)
+
+- 선형회귀 중 직선(1참 방정식)의 문제점 확인
+
+## 3일차
+
+### 선형회귀 중 다항회귀
 
 ### 로지스틱회귀
 
